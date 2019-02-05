@@ -59,9 +59,12 @@ newGameButton.addEventListener('click', createNewGame)
 
 let currentGuess = document.querySelector('.guess-box')
 let score = 0;
+const scoreTicker = document.querySelector('#score-count')
 
 function checkGuess (){
     if (currentGuess.value === currentGame.word) {
         score += currentGame.letters.length
+        scoreTicker.innerText = score;
+
     }
 }
