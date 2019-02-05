@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    text-align: center;
+
+}
+
+h1 {
+
+}
+
+p {
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    justify-content: center;
+}
+
+.points {
+    display: flex;
+    flex-direction: row;
+}
+
+.score {
+    text-align: right;
+    margin: 5px 20px 5px 0;
+}
+
+.letters-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.letter {
+    background: yellow;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    margin: 2px 5px;
+    color: black;
+
+}
+
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.submit-container {
+    padding: 50px 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.guess-box {
+    font-size: 20px;
+    padding: 1px 5px;
+}
+
+.submit-button {
+    background-color: lime;
+    margin: 0 0 0 5px;
+}
