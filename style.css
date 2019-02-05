@@ -83,3 +83,7 @@ main {
     text-align: center;
     padding: 2% 5%;
 }
+
+.wrong {
+    color: red;
+}

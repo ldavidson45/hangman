@@ -57,14 +57,27 @@ newGameButton.addEventListener('click', createNewGame)
 
 //create a function that checks the form word against the currentGame word.
 
-let currentGuess = document.querySelector('.guess-box')
+let currentGuess = document.querySelector('.guess-box');
 let score = 0;
-const scoreTicker = document.querySelector('#score-count')
+const scoreTicker = document.querySelector('#score-count');
+const answersContainer = document.querySelector('.answer-history');
+
 
 function checkGuess (){
+    let correctWord = document.createElement('li');
+
     if (currentGuess.value === currentGame.word) {
-        score += currentGame.letters.length
+        score += currentGame.letters.length;
         scoreTicker.innerText = score;
+        correctWord.append(currentGame.word);
+        answersContainer.appendChild(correctWord);
+        
+    } else { 
+        correctWord.append(currentGame.word);
+        correctWord.classList.add('wrong');
+        answersContainer.appendChild(correctWord);
 
     }
+    currentGuess.value = "";
+    createNewGame();
 }
