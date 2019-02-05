@@ -74,3 +74,12 @@ main {
     background-color: lime;
     margin: 0 0 0 5px;
 }
+
+.new-game {
+    background-color: blue;
+    height: 20px;
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    padding: 2% 5%;
+}
