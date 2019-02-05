@@ -54,3 +54,14 @@ const createNewGame = function (){
 // add event listener to the button that generates a new game
 
 newGameButton.addEventListener('click', createNewGame)
+
+//create a function that checks the form word against the currentGame word.
+
+let currentGuess = document.querySelector('.guess-box')
+let score = 0;
+
+function checkGuess (){
+    if (currentGuess.value === currentGame.word) {
+        score += currentGame.letters.length
+    }
+}
