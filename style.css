@@ -1,10 +1,19 @@
+/* background svg from vecteezy and instructions for how to use svgs from https://css-tricks.com/lodge/svg/06-using-svg-svg-background-image/ */
+
 body {
-    background-color: black;
-    color: white;
+    background-image: url("Ocean_background/Deep Ocean Background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #037091;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: stretch;
 }
 
 header {
     text-align: center;
+    height: 15%;
 
 }
 
@@ -21,6 +30,7 @@ main {
     flex-direction: column;
     border-color: black;
     justify-content: center;
+    align-items: stretch;
 }
 
 .points-lives {
@@ -31,13 +41,17 @@ main {
 }
 
 .points {
-    display: flex;
+    background-image: url('shell.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
 }
 
-.score {
-    text-align: right;
-    margin: 5px 20px 5px 0;
+.shell {
+    background-image: url("pearl.svg")
 }
+
+
 
 .lives {
     display: flex;
@@ -49,7 +63,7 @@ main {
 .fas {
     align-content: center;
     margin: auto 0;
-    color: red;
+    color: purple;
     padding: 5px;
 }
 
@@ -63,21 +77,31 @@ main {
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 10px auto;
 }
 
 .letter {
-    background: yellow;
-    border: 1px solid black;
-    height: 50px;
-    width: 50px;
-    margin: 2px 5px;
+    background-image: url("jellyfish.svg");
+    background-size: cover;
     color: black;
+    align-content: center;
+    margin: 5px 5px;
+    padding: 10px 15px 20px 15px;
+    width: 20px;
+    height: 40px;
+    font-size: 20px;
 }
 
 .answers-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 300px;
+    height: 10%;
+    margin: 5%;
+    background-color: blue;
+    padding: 0 1%;
+}
+
+.answer-history {
+    columns: 3;
+    text-decoration: none;
 }
 
 .submit-container {
@@ -100,7 +124,7 @@ main {
     background-color: blue;
     height: 20px;
     width: 100px;
-    margin: auto;
+    margin: 0% auto;
     text-align: center;
     padding: 2% 5%;
 }
@@ -121,5 +145,4 @@ main {
     text-align: center;
     border-radius: 10%;
     padding: 5%;
-
 }
