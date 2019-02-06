@@ -62,6 +62,7 @@ let score = 0;
 const scoreTicker = document.querySelector('#score-count');
 const answersContainer = document.querySelector('.answer-history');
 
+// check if an answer is right or wrong
 
 function checkGuess (){
     let correctWord = document.createElement('li');
@@ -81,3 +82,10 @@ function checkGuess (){
     currentGuess.value = "";
     createNewGame();
 }
+
+// add event listener to submit button OR on enter key
+
+const submitButton = document.querySelector('.submit-button')
+
+submitButton.addEventListener('click', checkGuess)
+
