@@ -97,7 +97,10 @@ function checkGuess (){
 }
 
 function gameOver () {
+    var popup = document.querySelector('.popup')
+    popup.style.visibility = 'visible'
     // show popup with high scores and place to enter name.
+    // clear points and letters and correct answers lists
 }
 
 
@@ -106,3 +109,12 @@ function gameOver () {
 const submitButton = document.querySelector('.submit-button')
 
 submitButton.addEventListener('click', checkGuess)
+
+
+// function addNameToLeaderboard () {
+//     var leaderBoard = document.querySelector('.leader-board')
+//     var newHighScore = document.createElement('li')
+//     var playerName = document.querySelector('.name').value
+//     newHighScore.append(playerName + ": " + score)
+//     leaderBoard.appendChild(newHighScore)
+// }
