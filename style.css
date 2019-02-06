@@ -23,14 +23,38 @@ main {
     justify-content: center;
 }
 
-.points {
+.points-lives {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    margin: auto 0;
+}
+
+.points {
+    display: flex;
 }
 
 .score {
     text-align: right;
     margin: 5px 20px 5px 0;
+}
+
+.lives {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    color: red;
+}
+
+.fas {
+    align-content: center;
+    margin: auto 0;
+    color: red;
+    padding: 5px;
+}
+
+.empty {
+    color: black;
 }
 
 .letters-container {

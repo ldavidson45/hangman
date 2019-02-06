@@ -59,14 +59,16 @@ newGameButton.addEventListener('click', createNewGame)
 
 let currentGuess = document.querySelector('.guess-box');
 let score = 0;
+let lives = 3;
 const scoreTicker = document.querySelector('#score-count');
 const answersContainer = document.querySelector('.answer-history');
+let livesTracker = document.querySelector('.lives')
+
 
 // check if an answer is right or wrong
 
 function checkGuess (){
     let correctWord = document.createElement('li');
-
     if (currentGuess.value === currentGame.word) {
         score += currentGame.letters.length;
         scoreTicker.innerText = score;
@@ -77,15 +79,30 @@ function checkGuess (){
         correctWord.append(currentGame.word);
         correctWord.classList.add('wrong');
         answersContainer.appendChild(correctWord);
+        lives -= 1;
+        livesTracker.innerHTML = "";
+        for (i = lives; i > 0; i--) {
+            const livesElement = document.createElement('div');
+            livesElement.classList.add('life')
+            livesElement.innerHTML = `<i class="fas fa-heart"></i>`
+            livesTracker.appendChild(livesElement)
+        }
 
+    if (lives == 0) {
+        gameOver()
+    }
     }
     currentGuess.value = "";
     createNewGame();
 }
+
+function gameOver () {
+    // show popup with high scores and place to enter name.
+}
+
 
 // add event listener to submit button OR on enter key
 
 const submitButton = document.querySelector('.submit-button')
 
 submitButton.addEventListener('click', checkGuess)
-
