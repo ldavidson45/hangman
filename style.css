@@ -40,24 +40,26 @@ main {
     margin: auto 0;
 }
 
+.container {
+    text-align: center;
+}
+
 .points {
-    background-image: url('shell.svg');
+    background-image: url('vectors/shell.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 100px;
+    background-position: center;
+    width: 75px;
+    text-align: center;
+    padding: 15px;
 }
-
-.shell {
-    background-image: url("pearl.svg")
-}
-
-
 
 .lives {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    color: red;
+    align-content: stretch;
+    margin: auto 0;
 }
 
 .fas {
@@ -78,10 +80,11 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     margin: 10px auto;
+    min-height: 100px;
 }
 
 .letter {
-    background-image: url("jellyfish.svg");
+    background-image: url("vectors/jellyfish.svg");
     background-size: cover;
     color: black;
     align-content: center;
@@ -94,9 +97,14 @@ main {
 
 .answers-container {
     height: 10%;
-    margin: 5%;
-    background-color: blue;
+    margin: 5% 0;
     padding: 0 1%;
+    display: flex;
+    flex-direction: row;
+}
+
+.fish-boy {
+    width: 25%;
 }
 
 .answer-history {
