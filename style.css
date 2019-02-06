@@ -13,7 +13,7 @@ body {
 
 header {
     text-align: center;
-    height: 15%;
+    height: 20vh;
 
 }
 
@@ -29,15 +29,16 @@ main {
     display: flex;
     flex-direction: column;
     border-color: black;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: flex-start;
 }
 
 .points-lives {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: auto 0;
+    margin: 0;
+    max-height: 50px;
+
 }
 
 .container {
@@ -73,6 +74,16 @@ main {
     color: black;
 }
 
+.new-game {
+    height: 50%;
+    width: 100px;
+    margin: auto 0 auto auto;
+    text-align: center;
+    padding: auto;
+    font-size: 20px;
+    background-color: rgba(38, 206, 232, 0.57);
+}
+
 .letters-container {
     display: flex;
     flex-direction: row;
@@ -96,8 +107,7 @@ main {
 }
 
 .answers-container {
-    height: 10%;
-    margin: 5% 0;
+    height: 45vh;
     padding: 0 1%;
     display: flex;
     flex-direction: row;
@@ -107,13 +117,17 @@ main {
     width: 25%;
 }
 
+.answers-list {
+    flex-grow: 1;
+    justify-items: center;
+}
+
 .answer-history {
     columns: 3;
     text-decoration: none;
 }
 
 .submit-container {
-    padding: 50px 50px;
     display: flex;
     justify-content: center;
 }
@@ -128,14 +142,7 @@ main {
     margin: 0 0 0 5px;
 }
 
-.new-game {
-    background-color: blue;
-    height: 20px;
-    width: 100px;
-    margin: 0% auto;
-    text-align: center;
-    padding: 2% 5%;
-}
+
 
 .wrong {
     color: red;
