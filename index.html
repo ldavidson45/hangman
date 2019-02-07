@@ -12,42 +12,55 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Freckle+Face|Hanalei+Fill" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin|Freckle+Face|Hanalei+Fill"
+      rel="stylesheet"
+    />
 
     <title>Word Scramble</title>
   </head>
   <body>
     <header>
       <h1>Word Scramble</h1>
-      <p>Unscramble the letters!</p>
+      <div class="new-game">New Game</div>
     </header>
     <main>
-      <div class="points-lives">
-        <p>Points:</p>
-        <div class="points" id="points-count">0</div>
-        <div class="lives">
-          <div class="life 1"><i class="fas fa-heart"></i></div>
-          <div class="life 2"><i class="fas fa-heart"></i></div>
-          <div class="life 3"><i class="fas fa-heart"></i></div>
-        </div>
-        <div class="new-game">New Game</div>
-      </div>
-      <div class="letters-container"></div>
-      <div class="answers-container">
-          <img src="vectors/fishGirl.svg" alt="orange fish cartoon" class="fish-boy">
-          <div class="answers-list">
+      <div class="points-letters">
+        <div class="letters-container"></div>
+        <div class="points-lives">
+          <div class="points-container">
+            <p>Points</p>
+            <div class="points" id="points-count">0</div>
+          </div>
+
+          <div class="lives-container">
+            <p>Lives</p>
+            <div class="lives">
+              <div class="life 1"><i class="fas fa-heart"></i></div>
+              <div class="life 2"><i class="fas fa-heart"></i></div>
+              <div class="life 3"><i class="fas fa-heart"></i></div>
             </div>
+          </div>
+        </div>
       </div>
+      <div class="answers-container">
+        <img
+          src="vectors/fishGirl.svg"
+          alt="orange fish cartoon"
+          class="fish-boy"
+        />
+      </div>
+      <div class="answers-list"></div>
+
       <div class="submit-container">
         <input type="text" class="guess-box" />
         <button class="submit-button">Submit</button>
       </div>
-
     </main>
-          <!-- popup formatting from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup  -->
-          <div class="popup">
-            <!-- <p class="popup-text">GAME OVER!</p> -->
-            <!-- <p>Name:</p>
+    <!-- popup formatting from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup  -->
+    <div class="popup">
+      <!-- <p class="popup-text">GAME OVER!</p> -->
+      <!-- <p>Name:</p>
             <input type="text" class="name">
             <button class="add-name">Add</button>
             <div class="leader-board">
@@ -55,7 +68,7 @@
     
                 </ol>
             </div> -->
-          </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
