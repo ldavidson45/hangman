@@ -133,8 +133,27 @@ currentGuess.addEventListener('keypress', function(evt){
     }
 })
 
+// adding animation to the jelly fish - source https://codepen.io/popmotion/pen/XzYJvP
+
+import {everyFrame} from 'popmotion';
+
+const {styler, everyFrame} = window.popmotion;
+
+const container = document.querySelector('.letters-container');
+
+const jellyStylers = Array
+  .from(container.childNodes)
+  .map(styler);
+
+const distance = 100;
 
 
+everyFrame()
+  .start((timestamp) => {
+      return ballStylers.map((thisStyler, i) => {
+          thisStyler.set('y', distance * Math.sin(0.004 * timestamp + (i * 0.5)));
+      });
+  });
 
 // function addNameToLeaderboard () {
 //     var leaderBoard = document.querySelector('.leader-board')
@@ -142,4 +161,3 @@ currentGuess.addEventListener('keypress', function(evt){
 //     var playerName = document.querySelector('.name').value
 //     newHighScore.append(playerName + ": " + score)
 //     leaderBoard.appendChild(newHighScore)
-// }
