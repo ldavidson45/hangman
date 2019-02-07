@@ -54,6 +54,8 @@ const createNewGame = function () {
 
     console.log(container)
     
+// GAME ANIMATION - JELLYFISH
+
     const jellyStylers = container.map(styler);
     
     const distance = 10;
@@ -134,11 +136,7 @@ popup.addEventListener('click', function () {
 
 })
 
-// add event listener to submit button OR on enter key
-
-const submitButton = document.querySelector('.submit-button');
-
-submitButton.addEventListener('click', checkGuess);
+// add event to submit guess on enter key
 
 currentGuess.addEventListener('keypress', function(evt){
     let keycode = evt.keyCode;

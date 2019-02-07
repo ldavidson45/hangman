@@ -87,10 +87,6 @@ main {
     padding: 5px;
 }
 
-.empty {
-    color: black;
-}
-
 .new-game {
     width: 100px;
     margin: 0 auto;
@@ -152,7 +148,7 @@ main {
 .words {
     background: #f3f934;
     box-shadow: 5px 5px #586d8e;
-    border-radius: 30%;
+    border-radius: 10px;
     margin: 2px; 
     height: 20px;
     padding: 5px;
@@ -166,22 +162,28 @@ main {
 
 .submit-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .guess-box {
     font-size: 20px;
-    padding: 1px 5px;
+    padding: 6px 10px;
     height: 35px;
     width: 25%;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: auto;
 }
 
-.submit-button {
-    background-color: lime;
-    margin: 0 0 0 5px;
+.small {
+    font-size: 12px;
+    color: white;
+    margin: auto;
+    background-color: #037091;
+    padding: 5px;
 }
-
-
 
 .wrong {
     color: red;
@@ -194,7 +196,7 @@ main {
     visibility: hidden;
     z-index: 1;
     text-align: center;
-    height: 100vh;
+    height: inherit;
     width: 100vw;
     background-image: url('vectors/gameOver.svg');
     background-repeat: no-repeat;
