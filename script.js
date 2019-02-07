@@ -1,4 +1,6 @@
-const gameWords = ["doctor","elephant","recreation","graph","class","literal","wheel","mineral","earring"]
+const gameWords = ["seaweed", "shark", "fish", "eel", "clam", "sponge", "dolphin", "octopus", "wave", "surfer",
+"pirate", "sand", "coral", "crab", "tuna", "salmon","shrimp","jellyfish", "whale", "barnacla","seal","turtle",
+"mermaid","squid", "anemone","urchin",]
 const newGameButton = document.querySelector(".new-game")
 const letterContainer = document.querySelector(".letters-container")
 const { styler, everyFrame } = window.popmotion;
@@ -53,12 +55,6 @@ const createNewGame = function () {
     currentGame.shuffle();
     // add event to submit guess on enter key
     currentGuess.addEventListener('keypress', enterGuess)
-    function enterGuess (evt){
-        let keycode = evt.keyCode;
-        if (keycode == 13) {
-            checkGuess();
-}
-};
 
     for (let i = 0; i < currentGame.letters.length; i++) {
         let letterBlock = document.createElement('div')
@@ -67,8 +63,6 @@ const createNewGame = function () {
         container.push(letterBlock)
         letterContainer.appendChild(letterBlock)
     }
-
-    console.log(container)
     
 // GAME ANIMATION - JELLYFISH
 
@@ -81,6 +75,13 @@ const createNewGame = function () {
         thisStyler.set('y', distance * Math.sin(0.002 * timestamp + (i * 0.6)));
     }));    
 
+}
+
+function enterGuess (evt){
+    let keycode = evt.keyCode;
+    if (keycode == 13) {
+        checkGuess();
+    }
 }
 
 // add event listener to the button that generates a new game
@@ -110,10 +111,9 @@ function checkGuess (){
             livesElement.innerHTML = `❤️`
             livesTracker.appendChild(livesElement)
         }
-
+    }
     if (lives == 0) {
         gameOver()
-    }
     }
     currentGuess.value = "";
     createNewGame();
@@ -130,7 +130,7 @@ function gameOver () {
     for (i = lives; i > 0; i--) {
         const livesElement = document.createElement('div');
         livesElement.classList.add('life')
-        livesElement.innerHTML = `<i class="fas fa-heart"></i>`
+        livesElement.innerHTML = `❤️`
         livesTracker.appendChild(livesElement)
         currentGuess.removeEventListener('keypress', enterGuess)
     // show popup with high scores and place to enter name.
