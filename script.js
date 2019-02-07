@@ -61,14 +61,15 @@ let currentGuess = document.querySelector('.guess-box');
 let points = 0;
 let lives = 3;
 const pointsTicker = document.querySelector('#points-count');
-const answersContainer = document.querySelector('.answer-history');
+const answersContainer = document.querySelector('.answers-list');
 let livesTracker = document.querySelector('.lives')
 
 
 // check if an answer is right or wrong
 
 function checkGuess (){
-    let correctWord = document.createElement('li');
+    let correctWord = document.createElement('div');
+    correctWord.classList.add('words');
     if (currentGuess.value === currentGame.word) {
         points += currentGame.letters.length;
         pointsTicker.innerText = points;

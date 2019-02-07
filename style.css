@@ -111,6 +111,7 @@ main {
     padding: 0 1%;
     display: flex;
     flex-direction: row;
+
 }
 
 .fish-boy {
@@ -118,8 +119,21 @@ main {
 }
 
 .answers-list {
-    flex-grow: 1;
-    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: normal;
+    height: 0;
+    max-height: 100%;
+}
+
+.words {
+    background: #f3f934;
+    box-shadow: 5px 5px #586d8e;
+    border-radius: 30%;
+    margin: 2px; 
+    height: 20px;
+    padding: 5px;
 }
 
 .answer-history {
