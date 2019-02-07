@@ -97,19 +97,27 @@ function checkGuess (){
     createNewGame();
 }
 
+var popup = document.querySelector('.popup')
+
 function gameOver () {
-    var popup = document.querySelector('.popup')
     popup.style.visibility = 'visible'
     // show popup with high scores and place to enter name.
     // clear points and letters and correct answers lists
 }
 
+popup.addEventListener('click', function () {
+    popup.style.visibility = 'hidden';
+    currentGuess.value = "";
+    createNewGame();
+})
 
 // add event listener to submit button OR on enter key
 
 const submitButton = document.querySelector('.submit-button')
 
 submitButton.addEventListener('click', checkGuess)
+
+
 
 
 // function addNameToLeaderboard () {
