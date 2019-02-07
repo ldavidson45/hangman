@@ -1,8 +1,7 @@
-
 const gameWords = ["doctor","elephant","recreation","graph","class","literal","wheel","mineral","earring"]
 const newGameButton = document.querySelector(".new-game")
 const letterContainer = document.querySelector(".letters-container")
-
+const { styler, everyFrame } = window.popmotion;
 
 // shuffle array code from https://www.jstips.co/en/javascript/shuffle-an-array/
 
@@ -37,18 +36,33 @@ class Game {
 
 let currentGame = {}
 
-const createNewGame = function (){
+const createNewGame = function () {
+    const container = []
     letterContainer.innerHTML = "";
-    let wordSelector = Math.floor(Math.random() * (gameWords.length-1))
+    let wordSelector = Math.floor(Math.random() * (gameWords.length - 1))
     currentGame = new Game(gameWords[wordSelector]);
     currentGame.shuffle();
-    console.log(currentGame)
+    // console.log(currentGame)
+    
     for (let i = 0; i < currentGame.letters.length; i++) {
         let letterBlock = document.createElement('div')
-    letterBlock.classList.add('letter')
-    letterBlock.append(currentGame.letters[i])
-    letterContainer.appendChild(letterBlock)
-}
+        letterBlock.classList.add('letter')
+        letterBlock.append(currentGame.letters[i])
+        container.push(letterBlock)
+        letterContainer.appendChild(letterBlock)
+    }
+
+    console.log(container)
+    
+    const jellyStylers = container.map(styler);
+    
+    const distance = 10;
+    
+    everyFrame()
+      .start((timestamp) => jellyStylers.map((thisStyler, i) => {
+        thisStyler.set('y', distance * Math.sin(0.002 * timestamp + (i * 0.6)));
+    }));    
+
 }
 
 // add event listener to the button that generates a new game
@@ -146,22 +160,7 @@ currentGuess.addEventListener('keypress', function(evt){
 
 // GAME ANIMATIONS//////////////////////////////////
 
-const popmotion = require('popmotion')
 // const everyFrame = popmotion.everyFrame
 
 // import { everyFrame } from 'popmotion';
 
-const { styler, everyFrame } = window.popmotion;
-
-const container = document.querySelectorAll('.letter');
-
-const jellyStylers = Array
-  .from(container.childNodes)
-  .map(styler);
-
-const distance = 100;
-
-everyFrame()
-  .start((timestamp) => jellyStylers.map((thisStyler, i) => {
-    thisStyler.set('y', distance * Math.sin(0.004 * timestamp + (i * 0.5)));
-}));
