@@ -1,5 +1,5 @@
 /* background svg from vecteezy and instructions for how to use svgs from https://css-tricks.com/lodge/svg/06-using-svg-svg-background-image/ */
-
+/* text shadow to look like outline code from: https://wpshout.com/quick-guides/create-text-outline-css/ */
 body {
     background-image: url("Ocean_background/Deep Ocean Background.svg");
     background-repeat: no-repeat;
@@ -17,11 +17,20 @@ header {
 
 }
 
-h1 {
 
+h1 {
+    font-family: 'Freckle Face', cursive;
+    color: white;
+    font-size: 45px;
+    text-shadow: -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+    letter-spacing: 2px;
 }
 
 p {
+    font-family: 'Cabin', sans-serif;
 
 }
 
@@ -43,6 +52,8 @@ main {
 
 .container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .points {
@@ -52,7 +63,7 @@ main {
     background-position: center;
     width: 75px;
     text-align: center;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .lives {
@@ -97,13 +108,15 @@ main {
 .letter {
     background-image: url("vectors/jellyfish.svg");
     background-size: cover;
-    color: black;
+    color: white;
     align-content: center;
     margin: 5px 5px;
     padding: 10px 15px 20px 15px;
     width: 20px;
     height: 40px;
     font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+
 }
 
 .answers-container {
@@ -134,6 +147,7 @@ main {
     margin: 2px; 
     height: 20px;
     padding: 5px;
+    font-family: 'Cabin', sans-serif;
 }
 
 .answer-history {
