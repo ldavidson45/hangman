@@ -100,22 +100,38 @@ function checkGuess (){
 var popup = document.querySelector('.popup')
 
 function gameOver () {
-    popup.style.visibility = 'visible'
+    popup.style.visibility = 'visible';
+    currentGuess.value = "";
+    createNewGame();
+    answersContainer.innerHTML = '';
+    lives = 3;
+    for (i = lives; i > 0; i--) {
+        const livesElement = document.createElement('div');
+        livesElement.classList.add('life')
+        livesElement.innerHTML = `<i class="fas fa-heart"></i>`
+        livesTracker.appendChild(livesElement)
     // show popup with high scores and place to enter name.
     // clear points and letters and correct answers lists
 }
+};
 
 popup.addEventListener('click', function () {
     popup.style.visibility = 'hidden';
-    currentGuess.value = "";
-    createNewGame();
+
 })
 
 // add event listener to submit button OR on enter key
 
-const submitButton = document.querySelector('.submit-button')
+const submitButton = document.querySelector('.submit-button');
 
-submitButton.addEventListener('click', checkGuess)
+submitButton.addEventListener('click', checkGuess);
+
+currentGuess.addEventListener('keypress', function(evt){
+    let keycode = evt.keyCode;
+    if (keycode == 13) {
+        checkGuess();
+    }
+})
 
 
 

@@ -149,6 +149,8 @@ main {
 .guess-box {
     font-size: 20px;
     padding: 1px 5px;
+    height: 35px;
+    width: 25%;
 }
 
 .submit-button {
