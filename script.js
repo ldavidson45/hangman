@@ -142,3 +142,26 @@ currentGuess.addEventListener('keypress', function(evt){
 //     var playerName = document.querySelector('.name').value
 //     newHighScore.append(playerName + ": " + score)
 //     leaderBoard.appendChild(newHighScore)
+
+
+// GAME ANIMATIONS//////////////////////////////////
+
+const popmotion = require('popmotion')
+// const everyFrame = popmotion.everyFrame
+
+// import { everyFrame } from 'popmotion';
+
+const { styler, everyFrame } = window.popmotion;
+
+const container = document.querySelectorAll('.letter');
+
+const jellyStylers = Array
+  .from(container.childNodes)
+  .map(styler);
+
+const distance = 100;
+
+everyFrame()
+  .start((timestamp) => jellyStylers.map((thisStyler, i) => {
+    thisStyler.set('y', distance * Math.sin(0.004 * timestamp + (i * 0.5)));
+}));
