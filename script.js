@@ -2,6 +2,14 @@ const gameWords = ["doctor","elephant","recreation","graph","class","literal","w
 const newGameButton = document.querySelector(".new-game")
 const letterContainer = document.querySelector(".letters-container")
 const { styler, everyFrame } = window.popmotion;
+let currentGame = {};
+let currentGuess = document.querySelector('.guess-box');
+let points = 0;
+let lives = 3;
+const pointsTicker = document.querySelector('#points-count');
+const answersContainer = document.querySelector('.answers-list');
+let livesTracker = document.querySelector('.lives');
+var popup = document.querySelector('.popup')
 
 // shuffle array code from https://www.jstips.co/en/javascript/shuffle-an-array/
 
@@ -33,8 +41,9 @@ class Game {
 // 5. for each letter in the currentGame, create a div with the class 'letter'
 // 6. append each letter into the div
 // 7. appends each div into the letters container element
+// 8. add event listener to the input so that the user can press enter to guess.
 
-let currentGame = {}
+
 
 const createNewGame = function () {
     const container = []
@@ -42,8 +51,15 @@ const createNewGame = function () {
     let wordSelector = Math.floor(Math.random() * (gameWords.length - 1))
     currentGame = new Game(gameWords[wordSelector]);
     currentGame.shuffle();
-    // console.log(currentGame)
-    
+    // add event to submit guess on enter key
+    currentGuess.addEventListener('keypress', enterGuess)
+    function enterGuess (evt){
+        let keycode = evt.keyCode;
+        if (keycode == 13) {
+            checkGuess();
+}
+};
+
     for (let i = 0; i < currentGame.letters.length; i++) {
         let letterBlock = document.createElement('div')
         letterBlock.classList.add('letter')
@@ -70,16 +86,6 @@ const createNewGame = function () {
 // add event listener to the button that generates a new game
 
 newGameButton.addEventListener('click', createNewGame)
-
-//create a function that checks the form word against the currentGame word.
-
-let currentGuess = document.querySelector('.guess-box');
-let points = 0;
-let lives = 3;
-const pointsTicker = document.querySelector('#points-count');
-const answersContainer = document.querySelector('.answers-list');
-let livesTracker = document.querySelector('.lives')
-
 
 // check if an answer is right or wrong
 
@@ -113,7 +119,7 @@ function checkGuess (){
     createNewGame();
 }
 
-var popup = document.querySelector('.popup')
+// function that triggers a game over scenario
 
 function gameOver () {
     popup.style.visibility = 'visible';
@@ -126,26 +132,18 @@ function gameOver () {
         livesElement.classList.add('life')
         livesElement.innerHTML = `<i class="fas fa-heart"></i>`
         livesTracker.appendChild(livesElement)
+        currentGuess.removeEventListener('keypress', enterGuess)
     // show popup with high scores and place to enter name.
     // clear points and letters and correct answers lists
 }
 };
 
+// add event listener to the game over screen
+
 popup.addEventListener('click', function () {
     popup.style.visibility = 'hidden';
 
 })
-
-// add event to submit guess on enter key
-
-currentGuess.addEventListener('keypress', function(evt){
-    let keycode = evt.keyCode;
-    if (keycode == 13) {
-        checkGuess();
-    }
-})
-
-// adding animation to the jelly fish - source https://codepen.io/popmotion/pen/XzYJvP
 
 
 // function addNameToLeaderboard () {
@@ -155,10 +153,4 @@ currentGuess.addEventListener('keypress', function(evt){
 //     newHighScore.append(playerName + ": " + score)
 //     leaderBoard.appendChild(newHighScore)
 
-
-// GAME ANIMATIONS//////////////////////////////////
-
-// const everyFrame = popmotion.everyFrame
-
-// import { everyFrame } from 'popmotion';
 

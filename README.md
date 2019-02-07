@@ -19,4 +19,12 @@ You only have three lives. If you guess a wrong word, you lose a life. The score
 
 The game ends when you guess three wrong words.
 
+
+Sources:
+
+
 Vectors from <a target="_blank" href="https://www.vecteezy.com">Vector Art by Vecteezy</a>
+
+Remove event listeners - https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+
+adding animation to the jelly fish - source https://codepen.io/popmotion/pen/XzYJvP
