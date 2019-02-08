@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Freckle+Face|Hanalei+Fill" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin|Freckle+Face|Hanalei+Fill"
+      rel="stylesheet"
+    />
     <!-- <a href="https://popmotion.io/api/every-frame" target="blank">View docs</a> -->
-
 
     <title>Word Scramble</title>
   </head>
@@ -20,6 +22,9 @@
       <div class="points-letters">
         <div class="letters-container"></div>
         <div class="points-lives">
+            <div class="high-score-container">
+              <p class="current-high-score">High Score: 0</p>
+            </div>
           <div class="points-container">
             <p>Points</p>
             <div class="points" id="points-count">0</div>
@@ -60,6 +65,12 @@
     
                 </ol>
             </div> -->
+      <div class="high-score">
+        <p>Congrats! You beat the high score! <br> Enter your name below.</p>
+        <input class="high-scorer" type="text"/>
+        <div class="new-high-score"></div>
+        <button class="submit">Submit</button>
+      </div>
     </div>
     <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
     <script src="script.js"></script>

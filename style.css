@@ -1,5 +1,9 @@
 /* background svg from vecteezy and instructions for how to use svgs from https://css-tricks.com/lodge/svg/06-using-svg-svg-background-image/ */
 /* text shadow to look like outline code from: https://wpshout.com/quick-guides/create-text-outline-css/ */
+html {
+    height: 100%;
+}
+
 body {
     background-image: url("Ocean_background/Deep Ocean Background.svg");
     background-repeat: no-repeat;
@@ -7,12 +11,15 @@ body {
     background-color: #037091;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100%;
     align-items: stretch;
+    margin: 0;
 }
 
 header {
     text-align: center;
+    min-height: 25%;
+    margin: 0;
 
 }
 
@@ -40,6 +47,8 @@ main {
     flex-direction: column;
     border-color: black;
     justify-content: flex-start;
+    min-height: 75%;
+    margin: 0;
 }
 
 .points-letters {
@@ -47,9 +56,10 @@ main {
     margin: 0;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: auto;
+    min-height: 40%;
 }
 
-.points-container, .lives-container {
+.points-container, .lives-container, .high-score-container {
     justify-content: center;
     text-align: center;
     color: white;
@@ -135,10 +145,11 @@ main {
 }
 
 .answers-container {
-    height: 45vh;
+    height: 40%;
     padding: 0 1%;
     display: flex;
     flex-direction: row;
+    margin: 0;
 
 }
 
@@ -173,9 +184,10 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 20%;
 }
 
-.guess-box {
+.guess-box, .high-scorer {
     font-size: 20px;
     padding: 6px 10px;
     height: 35px;
@@ -205,14 +217,24 @@ main {
     visibility: hidden;
     z-index: 1;
     text-align: center;
-    height: inherit;
+    min-height: 100%;
     width: 100vw;
     background-image: url('vectors/gameOver.svg');
     background-repeat: no-repeat;
     background-color: midnightblue;
     background-position: center;
     background-size: contain; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
+.high-score {
+    background: white;
+    color: black;
+    margin-bottom: 25%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /*get popup to cover full page: https://stackoverflow.com/questions/3250790/making-a-div-that-covers-the-entire-page */

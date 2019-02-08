@@ -1,6 +1,6 @@
 const gameWords = ["seaweed", "shark", "fish", "eel", "clam", "sponge", "dolphin", "octopus", "wave", "surfer",
-"pirate", "sand", "coral", "crab", "tuna", "salmon","shrimp","jellyfish", "whale", "barnacla","seal","turtle",
-"mermaid","squid", "anemone","urchin",]
+"pirate", "sand", "coral", "crab", "tuna", "salmon","shrimp","jellyfish", "whale", "barnacle","seal","turtle",
+"mermaid","squid", "anemone","urchin",""]
 const newGameButton = document.querySelector(".new-game")
 const letterContainer = document.querySelector(".letters-container")
 const { styler, everyFrame } = window.popmotion;
@@ -11,7 +11,9 @@ let lives = 3;
 const pointsTicker = document.querySelector('#points-count');
 const answersContainer = document.querySelector('.answers-list');
 let livesTracker = document.querySelector('.lives');
-var popup = document.querySelector('.popup')
+var popup = document.querySelector('.popup');
+var highScoreContainer = document.querySelector('.current-high-score')
+
 
 // shuffle array code from https://www.jstips.co/en/javascript/shuffle-an-array/
 
@@ -134,6 +136,10 @@ function gameOver () {
         livesTracker.appendChild(livesElement)
         currentGuess.removeEventListener('keypress', enterGuess)
     // show popup with high scores and place to enter name.
+    let highScore = Number(localStorage.getItem('.str_highScore'));
+    if (points > highScore) {
+        localStorage.setItem('str_highScore', `${points}`)
+    }
     // clear points and letters and correct answers lists
 }
 };
@@ -152,5 +158,13 @@ popup.addEventListener('click', function () {
 //     var playerName = document.querySelector('.name').value
 //     newHighScore.append(playerName + ": " + score)
 //     leaderBoard.appendChild(newHighScore)
+
+
+//  HIGH SCORE - https://www.w3schools.com/html/html5_webstorage.asp
+
+localStorage.str_highScore = '0';
+highScoreContainer.innerHTML = 'High Score: ' + localStorage.getItem('str_highScore')
+
+
 
 
