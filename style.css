@@ -224,17 +224,12 @@ main {
     background-color: midnightblue;
     background-position: center;
     background-size: contain; 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
-.high-score {
-    background: white;
-    color: black;
-    margin-bottom: 25%;
-    margin-right: auto;
-    margin-left: auto;
+.your-score {
+    color: white;
+    font-size: 45px;
+    margin-top: 45%;
 }
 
 /*get popup to cover full page: https://stackoverflow.com/questions/3250790/making-a-div-that-covers-the-entire-page */

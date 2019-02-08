@@ -13,6 +13,9 @@ const answersContainer = document.querySelector('.answers-list');
 let livesTracker = document.querySelector('.lives');
 var popup = document.querySelector('.popup');
 var highScoreContainer = document.querySelector('.current-high-score')
+localStorage.str_highScore = '0';
+let yourFinalScore = document.querySelector('.your-score')
+
 
 
 // shuffle array code from https://www.jstips.co/en/javascript/shuffle-an-array/
@@ -75,9 +78,9 @@ const createNewGame = function () {
     everyFrame()
       .start((timestamp) => jellyStylers.map((thisStyler, i) => {
         thisStyler.set('y', distance * Math.sin(0.002 * timestamp + (i * 0.6)));
-    }));    
+    }));
 
-}
+};
 
 function enterGuess (evt){
     let keycode = evt.keyCode;
@@ -118,6 +121,7 @@ function checkGuess (){
         gameOver()
     }
     currentGuess.value = "";
+    updateHighScore ();
     createNewGame();
 }
 
@@ -129,27 +133,23 @@ function gameOver () {
     createNewGame();
     answersContainer.innerHTML = '';
     lives = 3;
+    yourFinalScore.innerText = "Your Score: " + `${points}`
     for (i = lives; i > 0; i--) {
         const livesElement = document.createElement('div');
         livesElement.classList.add('life')
         livesElement.innerHTML = `❤️`
         livesTracker.appendChild(livesElement)
         currentGuess.removeEventListener('keypress', enterGuess)
-    // show popup with high scores and place to enter name.
-    let highScore = Number(localStorage.getItem('.str_highScore'));
-    if (points > highScore) {
-        localStorage.setItem('str_highScore', `${points}`)
     }
     // clear points and letters and correct answers lists
-}
-};
-
+    points = 0;
+    pointsTicker.innerText = points;
 // add event listener to the game over screen
-
 popup.addEventListener('click', function () {
     popup.style.visibility = 'hidden';
 
 })
+};
 
 
 // function addNameToLeaderboard () {
@@ -162,9 +162,12 @@ popup.addEventListener('click', function () {
 
 //  HIGH SCORE - https://www.w3schools.com/html/html5_webstorage.asp
 
-localStorage.str_highScore = '0';
-highScoreContainer.innerHTML = 'High Score: ' + localStorage.getItem('str_highScore')
 
-
-
+function updateHighScore () {
+let int_highScore = Number(localStorage.str_highScore)
+if (int_highScore < points) {
+    localStorage.str_highScore = `${points}`;
+    highScoreContainer.innerText = ('High Score: ' + localStorage.str_highScore)
+}
+};
 
