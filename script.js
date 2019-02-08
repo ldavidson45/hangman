@@ -1,8 +1,10 @@
-const gameWords = ["seaweed", "shark", "fish", "eel", "clam", "sponge", "dolphin", "octopus", "wave", "surfer",
-"pirate", "sand", "coral", "crab", "tuna", "salmon","shrimp","jellyfish", "whale", "barnacle","seal","turtle",
-"mermaid","squid", "anemone","urchin",""]
-const newGameButton = document.querySelector(".new-game")
-const letterContainer = document.querySelector(".letters-container")
+const gameWords = ["seaweed", "shark", "fish", "eel", "clam", "sponge", "dolphin", "octopus", "wave", "surf",
+"pirate", "sand", "coral", "crab", "tuna","shrimp","jellyfish", "whale", "barnacle","seal","turtle",
+"mermaid","squid", "anemone","urchin","pelican", "brine","otter", "humpback","manatee","flounder",
+"walrus","narwhal","oyster","lobster","seahorse","blowfish","stingray","barracuda","kelp","beluga","otter","angler fish",
+"seashell","sand dollar","mussel","conch","cuttlefish"];
+const newGameButton = document.querySelector(".new-game");
+const letterContainer = document.querySelector(".letters-container");
 const { styler, everyFrame } = window.popmotion;
 let currentGame = {};
 let currentGuess = document.querySelector('.guess-box');
