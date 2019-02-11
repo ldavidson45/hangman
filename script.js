@@ -13,10 +13,10 @@ let lives = 3;
 const pointsTicker = document.querySelector('#points-count');
 const answersContainer = document.querySelector('.answers-list');
 let livesTracker = document.querySelector('.lives');
-var popup = document.querySelector('.popup');
-var highScoreContainer = document.querySelector('.current-high-score')
+const popup = document.querySelector('.popup');
+const highScoreContainer = document.querySelector('.current-high-score');
 localStorage.str_highScore = '0';
-let yourFinalScore = document.querySelector('.your-score')
+const yourFinalScore = document.querySelector('.your-score');
 
 
 
@@ -28,9 +28,9 @@ class Game {
         this.letters = word.split("");
     }
     shuffle () {
-        var i;
-        var j;
-        var temp;
+        let i;
+        let j;
+        let temp;
         for (i = this.letters.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
             temp = this.letters[i];
@@ -55,20 +55,20 @@ class Game {
 
 
 const createNewGame = function () {
-    const container = []
+    let container = [];
     letterContainer.innerHTML = "";
-    let wordSelector = Math.floor(Math.random() * (gameWords.length - 1))
+    let wordSelector = Math.floor(Math.random() * (gameWords.length - 1));
     currentGame = new Game(gameWords[wordSelector]);
     currentGame.shuffle();
     // add event to submit guess on enter key
-    currentGuess.addEventListener('keypress', enterGuess)
+    currentGuess.addEventListener('keypress', enterGuess);
 
     for (let i = 0; i < currentGame.letters.length; i++) {
-        let letterBlock = document.createElement('div')
-        letterBlock.classList.add('letter')
-        letterBlock.append(currentGame.letters[i])
-        container.push(letterBlock)
-        letterContainer.appendChild(letterBlock)
+        let letterBlock = document.createElement('div');
+        letterBlock.classList.add('letter');
+        letterBlock.append(currentGame.letters[i]);
+        container.push(letterBlock);
+        letterContainer.appendChild(letterBlock);
     }
     
 // GAME ANIMATION - JELLYFISH
@@ -89,15 +89,15 @@ function enterGuess (evt){
     if (keycode == 13) {
         checkGuess();
     }
-}
+};
 
 // add event listener to the button that generates a new game
 
-newGameButton.addEventListener('click', createNewGame)
+newGameButton.addEventListener('click', createNewGame);
 
 // check if an answer is right or wrong
 
-function checkGuess (){
+function checkGuess () {
     let correctWord = document.createElement('div');
     correctWord.classList.add('words');
     if (currentGuess.value === currentGame.word) {
@@ -114,14 +114,14 @@ function checkGuess (){
         livesTracker.innerHTML = "";
         for (i = lives; i > 0; i--) {
             const livesElement = document.createElement('div');
-            livesElement.classList.add('life')
-            livesElement.innerHTML = `❤️`
-            livesTracker.appendChild(livesElement)
+            livesElement.classList.add('life');
+            livesElement.innerHTML = `❤️`;
+            livesTracker.appendChild(livesElement);
         }
-    }
+    };
     if (lives == 0) {
-        gameOver()
-    }
+        gameOver();
+    };
     currentGuess.value = "";
     updateHighScore ();
     createNewGame();
@@ -135,13 +135,13 @@ function gameOver () {
     createNewGame();
     answersContainer.innerHTML = '';
     lives = 3;
-    yourFinalScore.innerText = "Your Score: " + `${points}`
+    yourFinalScore.innerText = "Your Score: " + `${points}`;
     for (i = lives; i > 0; i--) {
         const livesElement = document.createElement('div');
-        livesElement.classList.add('life')
-        livesElement.innerHTML = `❤️`
-        livesTracker.appendChild(livesElement)
-        currentGuess.removeEventListener('keypress', enterGuess)
+        livesElement.classList.add('life');
+        livesElement.innerHTML = `❤️`;
+        livesTracker.appendChild(livesElement);
+        currentGuess.removeEventListener('keypress', enterGuess);
     }
     // clear points and letters and correct answers lists
     points = 0;
@@ -153,23 +153,13 @@ popup.addEventListener('click', function () {
 })
 };
 
-
-// function addNameToLeaderboard () {
-//     var leaderBoard = document.querySelector('.leader-board')
-//     var newHighScore = document.createElement('li')
-//     var playerName = document.querySelector('.name').value
-//     newHighScore.append(playerName + ": " + score)
-//     leaderBoard.appendChild(newHighScore)
-
-
 //  HIGH SCORE - https://www.w3schools.com/html/html5_webstorage.asp
 
 
 function updateHighScore () {
-let int_highScore = Number(localStorage.str_highScore)
+let int_highScore = Number(localStorage.str_highScore);
 if (int_highScore < points) {
     localStorage.str_highScore = `${points}`;
-    highScoreContainer.innerText = ('High Score: ' + localStorage.str_highScore)
+    highScoreContainer.innerText = ('High Score: ' + localStorage.str_highScore);
 }
 };
-
