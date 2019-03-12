@@ -26,7 +26,7 @@ The game ends when you guess three wrong words.
 
 NOTE: you have to type your guess in all lowercase letters.
 
-##Built With
+## Built With
 
 * HTML
 * CSS
@@ -34,7 +34,7 @@ NOTE: you have to type your guess in all lowercase letters.
 * Animations from <a href="https://popmotion.io/pure/">Popmotion Pure</a>
 * Vectors from <a href="https://www.vecteezy.com/">Vecteezy.com</a>
 
-##Authors
+## Authors
 
 * Liz Davidson
 
